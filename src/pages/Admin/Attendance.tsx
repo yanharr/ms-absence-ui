@@ -35,7 +35,6 @@ const Attendance = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [page, setPage] = useState(1)
     const [lastPage, setLastPage] = useState(1)
-    const [isLoading, setIsLoading] = useState(false)
     const [date, setDate] = useState<Date | null>(new Date())
     const [debouncedSearch, setDebouncedSearch] = useState("")
     const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined)
@@ -49,7 +48,6 @@ const Attendance = () => {
 
     const callGetAttendances = async (selectedDate: Date | null, search?: string, page?: number) => {
         try {
-            setIsLoading(true)
 
             const formattedDate = formatDate(selectedDate)
 
@@ -59,8 +57,6 @@ const Attendance = () => {
             setLastPage(data.data.lastPage)
         } catch(error) {
             showToast.error('Something Wrong')
-        } finally {
-            setIsLoading(false)
         }
     }
 

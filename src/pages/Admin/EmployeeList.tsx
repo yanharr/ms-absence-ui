@@ -54,7 +54,6 @@ const EmployeeList = () => {
 	const [isModalUpdate, setIsModalUpdate] = useState<Boolean>(false)
 	const [errorEID, setErrorEID] = useState({employee_id: ""});
 	const [idEmployee, setIdEmployee] = useState<string>("")
-	const [emailError, setEmailError] = useState("");
 
 	const createEmptyEmployee = (): Employee => ({
 		id: "",
@@ -197,11 +196,6 @@ const EmployeeList = () => {
 		}
 
 	}
-
-	const isPasswordValid =
-		!editingEmployee &&
-		"password" in form &&
-		/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(form.password || "");
 
 	const updateField = (field: keyof FormType, value: string) => {
 		setForm((prev) => ({ ...prev, [field]: value }));
