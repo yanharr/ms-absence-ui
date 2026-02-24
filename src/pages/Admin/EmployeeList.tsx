@@ -28,7 +28,19 @@ type CreateEmployeeDto = Omit<Employee, "id"> & {
 
 type UpdateEmployeeDto = Omit<Employee, "id">;
 
-type FormType = Employee | CreateEmployeeDto | UpdateEmployeeDto;
+type FormType = {
+	id: string;
+	employee_id: string;
+	name: string;
+	email: string;
+	dob: string;
+	address: string;
+	department: string;
+	gender: string;
+	phone_number: string;
+	hired_date: string;
+	password: string;
+}
 
 const EmployeeList = () => {
 	const [employees, setEmployees] = useState<Employee[]>([]);
